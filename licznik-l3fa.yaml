@@ -1,6 +1,6 @@
 substitutions:
   name: "licznik-l3f"
-  # dopisać do nazwy-xxxx (końcówkę [mac] z nowo wykrytego urządzenia )
+  # dopisać do nazwy-xxxxxx (końcówkę [mac] z nowo wykrytego urządzenia )
   friendly_name: "Licznik-L3F"
 
 esphome: 
@@ -13,9 +13,7 @@ esphome:
   name_add_mac_suffix: true
   comment: Uniwersal Modbus by CyberIN    
 
-dashboard_import:
-  package_import_url: github://CyberIN-pl/Modbus-licznik-L3F/blob/main/licznik-l3fa.yaml@main
-  import_full_config: false
+
 
     
 esp8266:
