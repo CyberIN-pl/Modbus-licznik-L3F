@@ -19,8 +19,8 @@ api:
 ota:
 
 dashboard_import:
-  package_import_url: github://CyberIN-pl/licznik-imp-1w/blob/main/licznik-imp-1w.yaml@main
-  import_full_config: true    
+  package_import_url: github://CyberIN-pl/Modbus-licznik-L3F/blob/main/licznik-l3fa.yaml@main
+  import_full_config: True
 
 wifi:
   # ssid: !secret wifi_ssid
