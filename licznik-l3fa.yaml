@@ -15,7 +15,7 @@ esphome:
 
 dashboard_import:
   package_import_url: github://CyberIN-pl/Modbus-licznik-L3F/blob/main/licznik-l3fa.yaml@main
-  import_full_config: True  
+  import_full_config: false
 
     
 esp8266:
