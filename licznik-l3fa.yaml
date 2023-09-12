@@ -1,0 +1,235 @@
+esphome: 
+  name: "licznik-l3f"
+  friendly_name: "Licznik-L3F"
+  project:
+    name: "CyberIN.pl"
+    version: "Licznik-L3F 7.3.0"
+  name_add_mac_suffix: true
+  comment: Uniwersal Modbus by CyberIN    
+  
+esp8266:
+  board: d1_mini
+
+logger:
+    level: DEBUG
+    baud_rate: 0  
+
+api:
+
+ota:
+
+dashboard_import:
+  package_import_url: github://CyberIN-pl/licznik-imp-1w/blob/main/licznik-imp-1w.yaml@main
+  import_full_config: true    
+
+wifi:
+  # ssid: !secret wifi_ssid
+  # password: !secret wifi_password
+  ap:
+    ssid: "Licznik-L3F-Config"
+
+captive_portal:
+
+improv_serial:
+  next_url: https://example.com/project-template/manual?ip={{ip_address}}&name={{device_name}}&version={{esphome_version}}
+
+# web_server:
+#   port: 80      
+
+# status_led:
+#   pin:
+#     number: 2
+#     inverted: true                     
+
+# uart:
+#   id: mod_bus
+#   tx_pin: 12
+#   rx_pin: 13
+#   baud_rate: 9600
+#   stop_bits: 1
+
+# modbus:
+#   send_wait_time: 200ms
+#   id: mod_bus_l3f
+
+# modbus_controller:
+#   - id: vcx
+#     address: 130
+#     modbus_id: mod_bus_l3f
+#     command_throttle: 100ms
+#     setup_priority: -10
+#     update_interval: 10s
+
+# sensor:
+#   - platform: modbus_controller
+#     id: faza_l1_napiecie
+#     name: "Napięcie L1"
+#     state_class: measurement
+#     register_type: read
+#     address: 0x200
+#     unit_of_measurement: "V"
+#     value_type: S_WORD
+#     accuracy_decimals: 2
+#     filters:
+#       - multiply: 0.1
+#   - platform: modbus_controller
+#     id: faza_l2_napiecie
+#     name: "Napięcie L2"
+#     state_class: measurement
+#     register_type: read
+#     address: 0x201
+#     unit_of_measurement: "V"
+#     value_type: S_WORD
+#     accuracy_decimals: 2
+#     filters:
+#       - multiply: 0.1
+#   - platform: modbus_controller
+#     id: faza_l3_napiecie
+#     name: "Napięcie L3"
+#     address: 0x202
+#     state_class: measurement
+#     unit_of_measurement: "V"
+#     register_type: read
+#     value_type: S_WORD
+#     accuracy_decimals: 2
+#     filters:
+#       - multiply: 0.1
+#   - platform: modbus_controller
+#     id: czestotliwosc
+#     name: "Częstotliwość"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x219
+#     unit_of_measurement: "Hz"
+#     value_type: S_WORD
+#     accuracy_decimals: 2
+#     filters:
+#       - multiply: 0.01
+#   - platform: modbus_controller
+#     id: faza_l1_prad
+#     name: "Prąd L1"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x206
+#     unit_of_measurement: "A"
+#     value_type: S_WORD
+#     accuracy_decimals: 3
+#     filters:
+#       - multiply: 0.001
+#   - platform: modbus_controller
+#     id: faza_l2_prad
+#     name: "Prąd L2"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x207
+#     unit_of_measurement: "A"
+#     value_type: S_WORD
+#     accuracy_decimals: 3
+#     filters:
+#       - multiply: 0.001
+#   - platform: modbus_controller
+#     id: faza_l3_prad
+#     name: "Prąd L3"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x208
+#     unit_of_measurement: "A"
+#     value_type: S_WORD
+#     accuracy_decimals: 3
+#     filters:
+#       - multiply: 0.001
+#   - platform: modbus_controller
+#     id: faza_l1_moc_czynna
+#     name: "Moc czynna L1"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x209
+#     unit_of_measurement: "W"
+#     value_type: S_WORD
+#   - platform: modbus_controller
+#     id: faza_l2_moc_czynna
+#     name: "Moc czynna L2"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x20A
+#     unit_of_measurement: "W"
+#     value_type: S_WORD
+#   - platform: modbus_controller
+#     id: faza_l3_moc_czynna
+#     name: "Moc czynna L3"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x20B
+#     unit_of_measurement: "W"
+#     value_type: S_WORD
+#   - platform: modbus_controller
+#     id: calkowita_moc_czynna
+#     name: "Moc czynna suma"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x20C
+#     unit_of_measurement: "kW"
+#     value_type: S_WORD
+#     accuracy_decimals: 3
+#     filters:
+#      - multiply: 0.001  
+#   - platform: modbus_controller
+#     id: moc_czynna_pobrana
+#     name: "Moc czynna pobrana"
+#     register_type: read
+#     icon: mdi:circle-slice-3
+#     device_class: energy
+#     state_class: total_increasing
+#     address: 0x034
+#     unit_of_measurement: "kWh"
+#     value_type: FP32
+#     accuracy_decimals: 1
+#     skip_updates: 60 
+#   - platform: modbus_controller
+#     id: moc_czynna_oddana
+#     name: "Moc czynna oddana"
+#     register_type: read
+#     icon: mdi:circle-slice-3
+#     device_class: energy
+#     state_class: total_increasing
+#     address: 0x036
+#     unit_of_measurement: "kWh"
+#     value_type: FP32
+#     accuracy_decimals: 1
+#     skip_updates: 60
+#   - platform: modbus_controller
+#     id: faza_l1_cos
+#     name: "Cosφ L1"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x215
+#     unit_of_measurement: ""
+#     value_type: S_WORD
+#     accuracy_decimals: 2
+#     skip_updates: 5
+#     filters:
+#       - multiply: 0.001 
+#   - platform: modbus_controller
+#     id: faza_l2_cos
+#     name: "Cosφ L2"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x216
+#     unit_of_measurement: ""
+#     value_type: S_WORD
+#     accuracy_decimals: 2
+#     skip_updates: 5
+#     filters:
+#       - multiply: 0.001  
+#   - platform: modbus_controller
+#     id: faza_l3_cos
+#     name: "Cosφ L3"
+#     register_type: read
+#     state_class: measurement
+#     address: 0x217
+#     unit_of_measurement: ""
+#     value_type: S_WORD
+#     accuracy_decimals: 2
+#     skip_updates: 5
+#     filters:
+#       - multiply: 0.001  
